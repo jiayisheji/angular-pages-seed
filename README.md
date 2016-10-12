@@ -31,21 +31,23 @@ $ npm install
 ## 技术栈
 
  1. angular v1.2.29
- 1.1 angular-cookies v1.2.29
- 1.2 angular-animate v1.2.29
- 1.3 angular-sanitize v1.2.29
- 1.4 angular-ui-router v0.2.15
+   * angular-cookies v1.2.29
+   * angular-animate v1.2.29
+   * angular-sanitize v1.2.29
+   * angular-ui-router v0.2.15
  2. jquery v1.11.3
- 3. gulp 
- 4. bower
- 5. nodejs
+ 3. lodash v3.10.1
+ 4. gulp   v3.9.1
+ 5. bower
+ 6. nodejs  >v4
+ 7. scss
         
     
 
 ## 目录结构说明
 
 ```
-chebian/
+webapp/
  ├──.tmp/                      * 开发临时目录
  ├──gulp/                      * gulp task集合
  |   ├──.eslintrc              * js语法检查
@@ -58,13 +60,11 @@ chebian/
  │   └──scripts.js             * 脚本处理
  │
  ├──src/                       * 开发目录
- |   ├──main.browser.ts        * our entry file for our browser environment
  │   │
  |   ├──index.html             * 网站首页
  │   │
  │   ├──data/                  * 开发临时数据
  │   │
- |   ├──vendor.ts              * our vendor file
  │   │
  │   ├──pages/                  * 网站其他页面
  │   │   ├──about/              * 关于我们
@@ -74,7 +74,7 @@ chebian/
  │   │       ├──500.html          * 500错误
  │   │   ├──help/               * 帮助中心
  │   │   ├──unsupportedBrowser/ * 不支持浏览器提示
- │   │   ├──shopAuth/           * 商家入驻认证
+ │   │   ├──shopAuth/           * 用户中心入驻认证
  │   │   ├──signUp/             * 注册
  │   │       ├──index.html          * 注册页面
  │   │       ├──index.js            * 注册脚本
@@ -83,12 +83,14 @@ chebian/
  │   │       ├──index.html          * 登录页面
  │   │       ├──index.js            * 登录脚本
  │   │       ├──index.css           * 登录样式
- │   │   ├──shops/              * 商家
+ │   │   ├──shops/              * 用户中心
  │   │       ├──components/         * 组件型指令
  │   │       ├──decorations/        * 装饰器型指令
  │   │       ├──filters/            * 过滤器
  │   │       ├──constants/          * 常量
  │   │       ├──services/           * 服务
+ │   │       ├──module/             * 模块依赖配置
+ │   │          ├──shopApp.js           * 模块依赖入口
  │   │       ├──configs/            * 配置
  │   │          ├──config.js            * config阶段配置
  │   │          ├──router.js            * 路由配置
