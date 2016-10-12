@@ -1,0 +1,20 @@
+// 重置样式
+@import "../common/reset";
+// 布局样式
+@import "../common/grid";
+// 功能样式
+@import "../common/function";
+
+// 头部样式
+@import "../common/header";
+
+// 登录样式
+.g-signin{
+  text-align: center;
+  font-size: 200px;
+  font-weight: bold;
+
+}
+
+// 底部样式
+@import "../common/footer";

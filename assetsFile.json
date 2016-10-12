@@ -1,0 +1,46 @@
+{
+  "data": [
+    {
+      "name": "index",
+      "file": "/index.html",
+      "scss": "pages/index/index.scss",
+      "appjs": ["pages/index/*.js"],
+      "appcss": ["pages/index/*.css"]
+    },
+    {
+      "name": "signin",
+      "file": "pages/signin/index.html",
+      "scss": "pages/signin/index.scss",
+      "appjs": ["pages/common/index.js", "pages/signin/public/*.js"],
+      "appcss": ["pages/signin/*.css"]
+    },
+    {
+      "name": "signup",
+      "file": "pages/signup/index.html",
+      "scss": "pages/signup/index.scss",
+      "appjs": ["pages/signup/public/*.js"],
+      "appcss": ["pages/signup/*.css"]
+    },
+    {
+      "name": "shopauth",
+      "file": "pages/shopauth/index.html",
+      "scss": "pages/shopauth/index.scss",
+      "appjs": ["pages/shopauth/public/*.js"],
+      "appcss": ["pages/shopauth/*.css"]
+    },
+    {
+      "name": "unsupportedbrowser",
+      "file": "pages/unsupportedbrowser/index.html",
+      "scss": "pages/unsupportedbrowser/index.scss",
+      "appjs": ["pages/unsupportedbrowser/public/*.js"],
+      "appcss": ["pages/unsupportedbrowser/*.css"]
+    },
+    {
+      "name": "shops",
+      "file": "pages/shops/index.html",
+      "scss": "pages/shops/index.scss",
+      "appjs": ["pages/shops/module/shopApp.js","pages/shops/app/**/*.js","pages/shops/components/**/*.js","pages/shops/decorations/**/*.js","pages/shops/filters/**/*.js","pages/shops/services/**/*.js","pages/shops/constants/**/*.js","pages/shops/configs/**/*.js"],
+      "appcss": ["pages/shops/*.css"]
+    }
+  ]
+}

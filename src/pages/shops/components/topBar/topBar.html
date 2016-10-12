@@ -1,0 +1,79 @@
+<div class="aliyun-console-topbar g-topbar" role="menubar" bindonce>
+    <div class="topbar-wrap f-cb">
+        <div class="topbar-head f-fl">
+            <a href="/" target="{{navLinks.logo.target || '_blank'}}" class="m-logo topbar-left" aliyun-console-spm="1"><span class="{{navLinks.logo.icon}}"></span>LOGO</a>
+            <a href="/pages/shops/index.html" cb-access-control="901" ontrol target="_self" class="topbar-home-link topbar-btn topbar-left" aliyun-console-spm="2" data-spm-click="gostr=/aliyun;locaid=d2;;" data-spm-anchor-id="5176.2020520001.101.d2"><span class="ng-binding">管理控制台</span></a>
+        </div>
+        <div class="topbar-info f-fr">
+            <!-- 搜索 -->
+            <div cb-shop-topbar-search search-url="{{navLinks.search.href}}" search-link="navLinks.search" class="topbar-btn topbar-btn-search topbar-left"     ng-if="navLinks.search.show"></div>
+            <!-- 手机app -->
+            <div class="topbar-qrcode topbar-left" ng-if="navLinks.qrcode.show">
+                <a class="topbar-btn" role="menuitem" href="{{navLinks.qrcode.href}}" target="_blank" aliyun-console-spm="7"><span ng-if="navLinks.qrcode.icon" class="{{navLinks.qrcode.icon}}"></span> <span>手机版</span> <span ng-if="navLinks.qrcode.showNew" class="topbar-new-icon icon-new"></span></a>
+                <div class="topbar-qrcode-panel">
+                    <div class="topbar-qrcode-image"><img ng-src="{{navLinks.qrcode.image}}"></div>
+                    <div class="topbar-qrcode-title">扫码下载手机APP</div>
+                </div>
+            </div>
+            <!-- 站内信  -->
+            <div class="dropdown topbar-notice topbar-btn topbar-left" dropdown ng-if="messages && messages.total >=0 && navLinks.message.show">
+                <a href="#" role="menuitem" aria-label="message" aria-haspopup="true" aria-label="press enter to expand" class="dropdown-toggle topbar-btn-notice" dropdown-toggle="dropdown" aliyun-console-spm="4">
+                    <span class="topbar-btn-notice-icon fa fa-bell"></span> <span class="topbar-btn-notice-num" ng-class="{'topbar-btn-notice-num-zero':messages.total == 0}" ng-bind="messages.total"></span></a>
+                <div class="topbar-notice-panel" style="width: 300px;">
+                    <div class="topbar-notice-arrow"></div>
+                    <div class="topbar-notice-head"><span>站内信息</span></div>
+                    <div class="topbar-notice-body">
+                        <ul ng-if="messages && messages.messageList.length >0">
+                            <li ng-repeat="item in messages.messageList" ng-class="{'topbar-notice-readed':item.readed}">
+                                <a ng-href="{{navLinks.message.messageUrl + item.msgId}}" target="_blank" class="clearfix" ng-click="readMessage(item)" aliyun-console-spm="40{{$index}}"><span class="inline-block"><span class="topbar-notice-link" ng-bind="item.title"></span> <span class="topbar-notice-time" ng-bind="item.formatCreatedTime"></span></span> <span class="inline-block topbar-notice-class" ng-if="item.className"><span class="topbar-notice-class-name">{{item.className}}</span></span></a>
+                            </li>
+                        </ul>
+                        <p ng-if="!messages ||  messages.messageList.length == 0" class="topbar-notice-empty">{{navLinks.message.blankText}}</p>
+                    </div>
+                    <div class="topbar-notice-foot">
+                        <a class="topbar-notice-more" target="_blank" ng-href="{{navLinks.message.href}}" aliyun-console-spm="401">{{navLinks.message.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 帮助 -->
+            <div class="topbar-left topbar-help topbar-info-item" ng-if="navLinks.help.show">
+                <div class="dropdown" dropdown>
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-label="press enter to expand" class="dropdown-toggle topbar-btn" dropdown-toggle="dropdown" aliyun-console-spm="53"><span>帮助中心</span><span ng-if="navLinks.help.showNew" class="topbar-new-icon icon-new"></span><span class="icon-arrow-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="link in navLinks.help.links" class="topbar-info-btn">
+                            <a href="{{link.href}}" target="{{link.target}}" aliyun-console-spm="51{{$index}}"><span>{{link.text}}</span><span ng-if="link.showNew" class="topbar-new-icon icon-new"></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- user -->
+            <div class="topbar-left topbar-user" ng-class="{'topbar-user-large':account.currentStructure}">
+                <div class="dropdown topbar-info-item" dropdown>
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-label="press enter to expand" class="dropdown-toggle topbar-btn" dropdown-toggle="dropdown" aliyun-console-spm="6"><span ng-bind="navLinks.user.account.name" title="account.aliyunIdOrigin"></span><span class="icon-arrow-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="topbar-info-btn user-identity" ng-if="account.currentStructure">
+                            <div class="user-identity-item">{{navLinks.user.labels.currentName}}<span class="user-identity-colon">:</span>{{account.currentName}}</div>
+                            <div class="user-identity-item">{{navLinks.user.labels.currentAlias}}<span class="user-identity-colon">:</span>{{account.currentAlias}}</div>
+                            <div class="user-identity-sign-wrap"><div class="user-identity-sign">{{navLinks.user.labels[account.currentStructure]}}</div></div>
+                        </li>
+                        <li class="topbar-info-btn user-identity" ng-if="account.loginStructure">
+                            <div class="user-identity-item">{{navLinks.user.labels.loginName}}<span class="user-identity-colon">:</span>{{account.loginName}}</div>
+                            <div class="user-identity-item">{{navLinks.user.labels.loginAlias}}<span class="user-identity-colon">:</span>{{account.loginAlias}}</div>
+                            <div class="user-identity-sign-wrap">
+                                <div class="user-identity-sign">{{navLinks.user.labels[account.loginStructure]}}</div>
+                            </div>
+                        </li>
+                        <li ng-repeat="link in navLinks.user.links" class="topbar-info-btn">
+                            <a href="{{link.href}}" role="menuitem" target="{{link.target || '_blank'}}" aliyun-console-spm="60{{$index}}"><span>{{link.text}}</span></a>
+                        </li>
+                        <li class="topbar-info-btn" ng-if="account.currentStructure">
+                            <a class="user-btn-link" href="{{navLinks.user.linkMap.switchRole.href}}" target="{{navLinks.user.linkMap.switchRole.target || '_self'}}" aliyun-console-spm=""><span>{{navLinks.user.linkMap.switchRole.text}}</span></a>
+                            <a ng-if="account.loginStructure" class="user-btn-link" href="{{navLinks.user.linkMap.exitSwitchedRole.href}}" target="{{navLinks.user.linkMap.exitSwitchedRole.target || '_self'}}" aliyun-console-spm=""><span>{{navLinks.user.linkMap.exitSwitchedRole.text}}</span></a>
+                            <a class="user-btn-link user-btn-link-signout" href="{{navLinks.user.linkMap.signout.href}}" target="{{navLinks.user.linkMap.signout.target || '_self'}}" aliyun-console-spm=""><span>{{navLinks.user.linkMap.signout.text}}</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

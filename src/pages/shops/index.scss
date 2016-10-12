@@ -1,0 +1,18 @@
+body{
+  margin: 0;
+  bottom: 0;
+}
+ul{
+  li{
+    float: left;
+    margin: 10px;
+  }
+}
+h1{
+  font-size: 100px;
+  color: #f0ad4e;
+}
+// viewFramework
+@import "components/viewFramework/viewFramework";
+@import "components/topBar/topBar";
+@import "components/sideBar/sideBar";

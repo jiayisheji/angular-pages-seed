@@ -1,0 +1,11 @@
+.f-fl{float:left;}
+.f-fr{float:right;}
+.f-fl,.f-fr{_display:inline;}
+.f-cb:after,.f-cb:before{content: "";display:table;clear:both;}
+.f-cb{*zoom:1}
+.f-tal{text-align: left;}
+.f-tac{text-align: center;}
+.f-tar{text-align: right;}
+.f-st{font-family:\5b8b\4f53,"SimSun", "宋体";}
+.f-hide{display:none !important;}
+.f-show{display:block !important;}
